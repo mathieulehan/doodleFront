@@ -2,37 +2,45 @@
                        (backdropClick)="close()" class="example-container">
   <mat-sidenav #sidenav (keydown.escape)="close()" disableClose id="sidenav" mode="side">
     <p>
-      <button color="primary" mat-button>Voir les employés</button>
-    </p>
-    <p>
-      <button color="primary" mat-button>Compter les employés</button>
-    </p>
-    <p>
-      <button color="primary" mat-button>Voir un employé</button>
-    </p>
-    <p>
-      <button color="primary" mat-button>Supprimer un employé</button>
+      <a routerLink="">
+        <button (click)="close()" color="primary" mat-button>Accueil</button>
+      </a>
     </p>
     <hr>
     <p>
-      <button color="primary" mat-button>Voir les sondages</button>
+      <button (click)="close()" color="primary" mat-button>Voir les employés</button>
     </p>
     <p>
-      <button color="primary" mat-button>Voir les sondages d'un certain type</button>
+      <button (click)="close()" color="primary" mat-button>Compter les employés</button>
     </p>
     <p>
-      <button color="primary" mat-button>Compter les sondages</button>
-    </p>
-    <p>
-      <button color="primary" mat-button>Compter les sondages d'un certain type</button>
-    </p>
-    <p>
-      <a routerLink="sondage">
-        <button color="primary" mat-button>Voir un sondage</button>
+      <a routerLink="employe">
+        <button (click)="close()" color="primary" mat-button>Voir un employé</button>
       </a>
     </p>
     <p>
-      <button color="primary" mat-button>Supprimer un sondage</button>
+      <button (click)="close()" color="primary" mat-button>Supprimer un employé</button>
+    </p>
+    <hr>
+    <p>
+      <button (click)="close()" color="primary" mat-button>Voir les sondages</button>
+    </p>
+    <p>
+      <button (click)="close()" color="primary" mat-button>Voir les sondages d'un certain type</button>
+    </p>
+    <p>
+      <button (click)="close()" color="primary" mat-button>Compter les sondages</button>
+    </p>
+    <p>
+      <button (click)="close()" color="primary" mat-button>Compter les sondages d'un certain type</button>
+    </p>
+    <p>
+      <a routerLink="sondage">
+        <button (click)="close()" color="primary" mat-button>Voir un sondage</button>
+      </a>
+    </p>
+    <p>
+      <button (click)="close()" color="primary" mat-button>Supprimer un sondage</button>
     </p>
     <hr>
 

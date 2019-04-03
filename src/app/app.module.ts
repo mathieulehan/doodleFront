@@ -8,12 +8,14 @@ import {SidenavComponent} from './sidenav/sidenav.component';
 import {MatCardModule, MatSidenavModule} from '@angular/material';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTreeModule} from '@angular/material/tree';
+import {EmployeComponent} from './employe/employe.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SondageComponent,
     SidenavComponent,
+    EmployeComponent,
   ],
   imports: [
     BrowserModule,
