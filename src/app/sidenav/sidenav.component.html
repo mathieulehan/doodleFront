@@ -1,6 +1,6 @@
-<mat-sidenav-container
-  (backdropClick)="close()" class="example-container">
-  <mat-sidenav #sidenav (keydown.escape)="close()" disableClose id="sidenav">
+<mat-sidenav-container hasBackdrop="true"
+                       (backdropClick)="close()" class="example-container">
+  <mat-sidenav #sidenav (keydown.escape)="close()" disableClose id="sidenav" mode="side">
     <p>
       <button color="primary" mat-button>Voir les employés</button>
     </p>
@@ -27,7 +27,9 @@
       <button color="primary" mat-button>Compter les sondages d'un certain type</button>
     </p>
     <p>
-      <button color="primary" mat-button>Voir un sondage</button>
+      <a routerLink="sondage">
+        <button color="primary" mat-button>Voir un sondage</button>
+      </a>
     </p>
     <p>
       <button color="primary" mat-button>Supprimer un sondage</button>
@@ -40,6 +42,7 @@
     <p>
       <button (click)="sidenav.open()" color="primary" mat-fab></button>
     </p>
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
 

@@ -5,8 +5,9 @@ import {AppComponent} from './app.component';
 import {SondageComponent} from './sondage/sondage.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SidenavComponent} from './sidenav/sidenav.component';
-import {MatSidenavModule} from '@angular/material';
+import {MatCardModule, MatSidenavModule} from '@angular/material';
 import {MatButtonModule} from '@angular/material/button';
+import {MatTreeModule} from '@angular/material/tree';
 
 @NgModule({
   declarations: [
@@ -19,9 +20,11 @@ import {MatButtonModule} from '@angular/material/button';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSidenavModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTreeModule,
+    MatCardModule
   ],
-  exports: [MatSidenavModule, MatButtonModule],
+  exports: [MatSidenavModule, MatButtonModule, MatTreeModule],
   providers: [],
   bootstrap: [AppComponent]
 })

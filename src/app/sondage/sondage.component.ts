@@ -7,6 +7,9 @@ import {Component, OnInit} from '@angular/core';
 })
 export class SondageComponent implements OnInit {
 
+  title = 'COIN';
+  theme = 'THEMEME COIN';
+
   constructor() {
   }
 
