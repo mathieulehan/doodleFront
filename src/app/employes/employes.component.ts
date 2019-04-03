@@ -1,0 +1,20 @@
+import {Component, OnInit} from '@angular/core';
+
+@Component({
+  selector: 'app-employes',
+  templateUrl: './employes.component.html',
+  styleUrls: ['./employes.component.css']
+})
+export class EmployesComponent implements OnInit {
+
+  employes: any;
+  nbEmployes: number;
+
+  constructor() {
+  }
+
+  ngOnInit() {
+    this.nbEmployes = 12;
+  }
+
+}

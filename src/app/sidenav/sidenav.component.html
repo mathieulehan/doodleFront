@@ -8,10 +8,14 @@
     </p>
     <hr>
     <p>
-      <button (click)="close()" color="primary" mat-button>Voir les employés</button>
+      <a routerLink="employes">
+        <button (click)="close()" color="primary" mat-button>Voir les employés</button>
+      </a>
     </p>
     <p>
-      <button (click)="close()" color="primary" mat-button>Compter les employés</button>
+      <a routerLink="employes-count">
+        <button (click)="close()" color="primary" mat-button>Compter les employés</button>
+      </a>
     </p>
     <p>
       <a routerLink="employe">
@@ -23,18 +27,24 @@
     </p>
     <hr>
     <p>
-      <button (click)="close()" color="primary" mat-button>Voir les sondages</button>
+      <a routerLink="sondages">
+        <button (click)="close()" color="primary" mat-button>Voir les sondages</button>
+      </a>
     </p>
     <p>
-      <a routerLink="sondageType">
+      <a routerLink="sondages-type">
         <button (click)="close()" color="primary" mat-button>Voir les sondages d'un certain type</button>
       </a>
     </p>
     <p>
-      <button (click)="close()" color="primary" mat-button>Compter les sondages</button>
+      <a routerLink="sondages-count">
+        <button (click)="close()" color="primary" mat-button>Compter les sondages</button>
+      </a>
     </p>
     <p>
-      <button (click)="close()" color="primary" mat-button>Compter les sondages d'un certain type</button>
+      <a routerLink="sondages-type-count">
+        <button (click)="close()" color="primary" mat-button>Compter les sondages d'un certain type</button>
+      </a>
     </p>
     <p>
       <a routerLink="sondage">

@@ -9,7 +9,12 @@ import {MatBadgeModule, MatCardModule, MatSidenavModule} from '@angular/material
 import {MatButtonModule} from '@angular/material/button';
 import {MatTreeModule} from '@angular/material/tree';
 import {EmployeComponent} from './employe/employe.component';
-import {SondageTypeComponent} from './sondage-type/sondage-type.component';
+import {SondageTypeComponent} from './sondages-type/sondage-type.component';
+import {SondageCountComponent} from './sondages-count/sondage-count.component';
+import {EmployesComponent} from './employes/employes.component';
+import {EmployesCountComponent} from './employes-count/employes-count.component';
+import {SondagesComponent} from './sondages/sondages.component';
+import {SondagesTypeCountComponent} from './sondages-type-count/sondages-type-count.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +23,11 @@ import {SondageTypeComponent} from './sondage-type/sondage-type.component';
     SidenavComponent,
     EmployeComponent,
     SondageTypeComponent,
+    SondageCountComponent,
+    EmployesComponent,
+    EmployesCountComponent,
+    SondagesComponent,
+    SondagesTypeCountComponent,
   ],
   imports: [
     BrowserModule,
