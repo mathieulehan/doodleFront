@@ -1,0 +1,48 @@
+<mat-sidenav-container
+  (backdropClick)="close()" class="example-container">
+  <mat-sidenav #sidenav (keydown.escape)="close()" disableClose id="sidenav">
+    <p>
+      <button color="primary" mat-button>Voir les employés</button>
+    </p>
+    <p>
+      <button color="primary" mat-button>Compter les employés</button>
+    </p>
+    <p>
+      <button color="primary" mat-button>Voir un employé</button>
+    </p>
+    <p>
+      <button color="primary" mat-button>Supprimer un employé</button>
+    </p>
+    <hr>
+    <p>
+      <button color="primary" mat-button>Voir les sondages</button>
+    </p>
+    <p>
+      <button color="primary" mat-button>Voir les sondages d'un certain type</button>
+    </p>
+    <p>
+      <button color="primary" mat-button>Compter les sondages</button>
+    </p>
+    <p>
+      <button color="primary" mat-button>Compter les sondages d'un certain type</button>
+    </p>
+    <p>
+      <button color="primary" mat-button>Voir un sondage</button>
+    </p>
+    <p>
+      <button color="primary" mat-button>Supprimer un sondage</button>
+    </p>
+    <hr>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <p>
+      <button (click)="sidenav.open()" color="primary" mat-fab></button>
+    </p>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- Copyright 2019 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
