@@ -1,8 +1,9 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {SidenavComponent} from './sidenav.component';
-import {MatSidenavModule} from '@angular/material';
+import {MatListModule, MatSidenavModule} from '@angular/material';
 import {MatCardModule} from '@angular/material/card';
+import {MatDividerModule} from '@angular/material/divider';
 import {AppRoutingModule} from '../app-routing.module';
 
 @NgModule({
@@ -10,11 +11,12 @@ import {AppRoutingModule} from '../app-routing.module';
     CommonModule,
     MatSidenavModule,
     MatCardModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatListModule,
+    MatDividerModule
   ],
-  declarations: [SidenavComponent]
-  ,
-  exports: [SidenavComponent]
+  declarations: [SidenavComponent],
+  exports: [SidenavComponent, MatDividerModule]
 })
 export class SidenavModule {
 }

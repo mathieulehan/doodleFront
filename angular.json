@@ -58,7 +58,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "doodleFront:build"
+            "browserTarget": "doodleFront:build",
+            "proxyConfig": "./src/proxy.conf.json"
           },
           "configurations": {
             "production": {

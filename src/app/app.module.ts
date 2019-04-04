@@ -5,7 +5,7 @@ import {AppComponent} from './app.component';
 import {SondageComponent} from './sondage/sondage.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SidenavComponent} from './sidenav/sidenav.component';
-import {MatBadgeModule, MatCardModule, MatSidenavModule} from '@angular/material';
+import {MatBadgeModule, MatCardModule, MatInputModule, MatPaginatorModule, MatSidenavModule} from '@angular/material';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTreeModule} from '@angular/material/tree';
 import {EmployeComponent} from './employe/employe.component';
@@ -15,6 +15,12 @@ import {EmployesComponent} from './employes/employes.component';
 import {EmployesCountComponent} from './employes-count/employes-count.component';
 import {SondagesComponent} from './sondages/sondages.component';
 import {SondagesTypeCountComponent} from './sondages-type-count/sondages-type-count.component';
+import {HttpClientModule} from '@angular/common/http';
+import {ApiService} from './api.service';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatTableModule} from '@angular/material/table';
+
+import 'hammerjs';
 
 @NgModule({
   declarations: [
@@ -37,10 +43,15 @@ import {SondagesTypeCountComponent} from './sondages-type-count/sondages-type-co
     MatButtonModule,
     MatTreeModule,
     MatCardModule,
-    MatBadgeModule
+    MatBadgeModule,
+    HttpClientModule,
+    MatTooltipModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatInputModule,
   ],
   exports: [MatSidenavModule, MatButtonModule, MatTreeModule],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 
