@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {ApiService} from '../api.service';
 
 @Component({
   selector: 'app-employes-count',
@@ -7,13 +8,19 @@ import {Component, OnInit} from '@angular/core';
 })
 export class EmployesCountComponent implements OnInit {
 
-  nbEmployes: number;
+  nbEmployes: string;
 
-  constructor() {
+  constructor(public api: ApiService) {
   }
 
   ngOnInit() {
-    this.nbEmployes = 12;
+    this.getNumberOfEmployes();
+  }
+
+  private getNumberOfEmployes() {
+    this.api.getNumberOfEmployees().subscribe(res => {
+      this.nbEmployes = res;
+    });
   }
 
 }

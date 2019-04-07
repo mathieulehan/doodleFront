@@ -1,7 +1,9 @@
+import {Department} from "./Department";
+
 export class Employe {
   id: number;
-  birthDate: string;
+  datenaissance: string;
   firstName: string;
   lastName: string;
-  departementId: number;
+  department: Department;
 }

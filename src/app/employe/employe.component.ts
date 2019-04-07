@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {ApiService} from '../api.service';
+import {Employe} from '../models/Employe';
 
 @Component({
   selector: 'app-employe',
@@ -7,15 +9,18 @@ import {Component, OnInit} from '@angular/core';
 })
 export class EmployeComponent implements OnInit {
 
-  firstName: string;
-  lastName: string;
+  employeToDisplay: Employe;
 
-  constructor() {
+  constructor(public api: ApiService) {
   }
 
   ngOnInit() {
-    this.firstName = 'Mathieu';
-    this.lastName = 'Le Hanc\'';
+    this.getEmploye(1);
   }
 
+  private getEmploye(id: number) {
+    this.api.getEmploye(id).subscribe(res => {
+      this.employeToDisplay = res;
+    });
+  }
 }

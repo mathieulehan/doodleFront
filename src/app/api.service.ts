@@ -3,6 +3,7 @@ import {Observable, throwError} from 'rxjs';
 import {Employe} from './models/Employe';
 import {catchError} from 'rxjs/internal/operators/catchError';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {Sondage} from './models/Sondage';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +12,12 @@ export class ApiService {
   url: string;
   urlEmployees: string;
   count: string;
+  surveys: string;
 
   constructor(private http: HttpClient) {
-    this.url = 'http://localhost:9090/rest/';
+    this.url = '/api/';
     this.urlEmployees = 'employees/';
+    this.surveys = 'surveys/';
     this.count = 'count';
   }
 
@@ -50,10 +53,45 @@ export class ApiService {
       );
   }
 
+  /**
+   * Get the number of registered employees
+   */
   getNumberOfEmployees() {
     return this.http.get(this.url + this.urlEmployees + this.count, {responseType: 'text'})
       .pipe(
         catchError(ApiService.handleError)
       );
   }
+
+  /**
+   * Get all surveys
+   */
+  getSurveys() {
+    return this.http.get<Sondage[]>(`${this.url + this.surveys}`)
+      .pipe(
+        catchError(ApiService.handleError)
+      );
+  }
+
+  /**
+   * Get a survey by its id
+   * @param id
+   */
+  getSurvey(id: number) {
+    return this.http.get<Sondage>(`${this.url + this.surveys + id}`)
+      .pipe(
+        catchError(ApiService.handleError)
+      );
+  }
+
+  /**
+   * Get the number of created surveys
+   */
+  getNumberOfSurveys() {
+    return this.http.get(this.url + this.surveys + this.count, {responseType: 'text'})
+      .pipe(
+        catchError(ApiService.handleError)
+      );
+  }
 }
+

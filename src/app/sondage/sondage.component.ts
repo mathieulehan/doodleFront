@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {Sondage} from '../models/Sondage';
+import {ApiService} from '../api.service';
 
 @Component({
   selector: 'app-sondage',
@@ -7,15 +9,18 @@ import {Component, OnInit} from '@angular/core';
 })
 export class SondageComponent implements OnInit {
 
-  title: string;
-  theme: string;
+  sondageToDisplay: Sondage;
 
-  constructor() {
+  constructor(public api: ApiService) {
   }
 
   ngOnInit() {
-    this.title = 'Le premier sondage par exemple';
-    this.theme = 'Le thème de ce sondage';
+    this.getSondage(5);
   }
 
+  private getSondage(id: number) {
+    this.api.getSurvey(id).subscribe(res => {
+      this.sondageToDisplay = res;
+    });
+  }
 }

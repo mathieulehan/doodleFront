@@ -23,16 +23,22 @@
       <td *matCellDef="let row" mat-cell> {{row.birthDate}}%</td>
     </ng-container>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <th *matHeaderCellDef mat-header-cell mat-sort-header> Name</th>
-      <td *matCellDef="let row" mat-cell> {{row.name}} </td>
+    <!-- FirstName Column -->
+    <ng-container matColumnDef="firstName">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> Prénom</th>
+      <td *matCellDef="let row" mat-cell> {{row.firstName}} </td>
+    </ng-container>
+
+    <!-- LastName Column -->
+    <ng-container matColumnDef="lastName">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> Nom</th>
+      <td *matCellDef="let row" mat-cell> {{row.lastName}} </td>
     </ng-container>
 
     <!-- Color Column -->
-    <ng-container matColumnDef="numEtudiant">
-      <th *matHeaderCellDef mat-header-cell mat-sort-header> Numéro étudiant</th>
-      <td *matCellDef="let row" mat-cell> {{row.numEtudiant}} </td>
+    <ng-container matColumnDef="dep">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header>Département</th>
+      <td *matCellDef="let row" mat-cell> {{row.departementId}} </td>
     </ng-container>
 
     <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>

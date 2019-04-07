@@ -1,9 +1,11 @@
 <div class="container">
 
-  <mat-card>
+  Par défaut, l'employé portant l'id 1 est affiché.
+
+  <mat-card *ngIf="employeToDisplay">
     Prénom:
-    <mat-card-title>{{firstName}}</mat-card-title>
+    <mat-card-title>{{employeToDisplay.firstName}}</mat-card-title>
     Nom:
-    <mat-card-subtitle>{{lastName}}</mat-card-subtitle>
+    <mat-card-subtitle>{{employeToDisplay.lastName}}</mat-card-subtitle>
   </mat-card>
 </div>
