@@ -13,7 +13,7 @@ export class ApiService {
   count: string;
 
   constructor(private http: HttpClient) {
-    this.url = 'localhost:9090/rest/';
+    this.url = 'http://localhost:9090/rest/';
     this.urlEmployees = 'employees/';
     this.count = 'count';
   }

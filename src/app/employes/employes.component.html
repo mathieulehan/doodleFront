@@ -3,3 +3,42 @@
     <label [matBadge]="nbEmployes" matBadgeOverlap="false">Employés</label>
   </mat-card-title>
 </mat-card>
+
+<mat-form-field>
+  <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Filter">
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+  <table [dataSource]="dataSource" mat-table matSort>
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> ID</th>
+      <td *matCellDef="let row" mat-cell> {{row.id}} </td>
+    </ng-container>
+
+    <!-- Progress Column -->
+    <ng-container matColumnDef="birthDate">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> Date de naissance</th>
+      <td *matCellDef="let row" mat-cell> {{row.birthDate}}%</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> Name</th>
+      <td *matCellDef="let row" mat-cell> {{row.name}} </td>
+    </ng-container>
+
+    <!-- Color Column -->
+    <ng-container matColumnDef="numEtudiant">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> Numéro étudiant</th>
+      <td *matCellDef="let row" mat-cell> {{row.numEtudiant}} </td>
+    </ng-container>
+
+    <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: displayedColumns;" mat-row>
+    </tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
