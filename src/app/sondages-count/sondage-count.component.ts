@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {ApiService} from '../api.service';
 
 @Component({
   selector: 'app-sondage-count',
@@ -7,13 +8,19 @@ import {Component, OnInit} from '@angular/core';
 })
 export class SondageCountComponent implements OnInit {
 
-  nbSondages: number;
+  nbSondages: string;
 
-  constructor() {
+  constructor(public api: ApiService) {
   }
 
   ngOnInit() {
-    this.nbSondages = 40;
+    this.getNumberOfSurveys();
+  }
+
+  getNumberOfSurveys() {
+    this.api.getNumberOfSurveys('all').subscribe(res => {
+      this.nbSondages = res;
+    });
   }
 
 }

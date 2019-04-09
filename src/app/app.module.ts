@@ -5,7 +5,15 @@ import {AppComponent} from './app.component';
 import {SondageComponent} from './sondage/sondage.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SidenavComponent} from './sidenav/sidenav.component';
-import {MatBadgeModule, MatCardModule, MatInputModule, MatPaginatorModule, MatSidenavModule, MatSortModule} from '@angular/material';
+import {
+  MatBadgeModule,
+  MatCardModule,
+  MatDividerModule,
+  MatInputModule,
+  MatPaginatorModule,
+  MatSidenavModule,
+  MatSortModule
+} from '@angular/material';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTreeModule} from '@angular/material/tree';
 import {EmployeComponent} from './employe/employe.component';
@@ -19,7 +27,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {ApiService} from './api.service';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTableModule} from '@angular/material/table';
-
+import {MatTabsModule} from '@angular/material/tabs';
 import 'hammerjs';
 
 @NgModule({
@@ -49,7 +57,9 @@ import 'hammerjs';
     MatTableModule,
     MatPaginatorModule,
     MatInputModule,
-    MatSortModule
+    MatSortModule,
+    MatDividerModule,
+    MatTabsModule
   ],
   exports: [MatSidenavModule, MatButtonModule, MatTreeModule],
   providers: [ApiService],

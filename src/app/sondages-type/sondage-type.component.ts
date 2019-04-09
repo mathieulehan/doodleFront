@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {ApiService} from '../api.service';
 
 @Component({
   selector: 'app-sondage-type',
@@ -8,21 +9,31 @@ import {Component, OnInit} from '@angular/core';
 export class SondageTypeComponent implements OnInit {
 
   sondagesToDisplay: any;
-  nbSondagesTypeDate: number;
-  nbSondagesTypeDateEtLieu: number;
-  nbSondagesTypeLieu: number;
-  nbSondagesTypeListeChoix: number;
-  nbSondagesTypeChoix: number;
+  nbSondagesTypeDate: string;
+  nbSondagesTypeDateEtLieu: string;
+  nbSondagesTypeLieu: string;
+  nbSondagesTypeListeChoix: string;
+  nbSondagesTypeChoix: string;
 
-  constructor() {
+  constructor(public api: ApiService) {
   }
 
   ngOnInit() {
-    this.nbSondagesTypeChoix = 15;
-    this.nbSondagesTypeDate = 4;
-    this.nbSondagesTypeDateEtLieu = 6;
-    this.nbSondagesTypeListeChoix = 10;
-    this.nbSondagesTypeLieu = 5;
+    this.getAllSurveysNumber();
   }
 
+  private getAllSurveysNumber() {
+    this.api.getNumberOfSurveys('date').subscribe(res =>
+      this.nbSondagesTypeDate = res
+    );
+    this.api.getNumberOfSurveys('location').subscribe(res =>
+      this.nbSondagesTypeLieu = res
+    );
+    this.api.getNumberOfSurveys('dateLocation').subscribe(res =>
+      this.nbSondagesTypeDateEtLieu = res
+    );
+    this.api.getNumberOfSurveys('list').subscribe(res =>
+      this.nbSondagesTypeListeChoix = res
+    );
+  }
 }

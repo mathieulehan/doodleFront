@@ -13,11 +13,24 @@ export class ApiService {
   urlEmployees: string;
   count: string;
   surveys: string;
+  surveysDate: string;
+  surveysLocation: string;
+  surveysDateLocation: string;
+  surveysList: string;
 
   constructor(private http: HttpClient) {
     this.url = '/api/';
+    // employees
     this.urlEmployees = 'employees/';
+
+    // surveys
     this.surveys = 'surveys/';
+    this.surveysDate = 'dateSurveys/';
+    this.surveysLocation = 'locationSurveys/';
+    this.surveysDateLocation = 'dateLocationSurveys/';
+    this.surveysList = 'listSurveys/';
+
+    // operations
     this.count = 'count';
   }
 
@@ -87,11 +100,34 @@ export class ApiService {
   /**
    * Get the number of created surveys
    */
-  getNumberOfSurveys() {
-    return this.http.get(this.url + this.surveys + this.count, {responseType: 'text'})
-      .pipe(
-        catchError(ApiService.handleError)
-      );
+  getNumberOfSurveys(type: string) {
+    switch (type) {
+      case 'all':
+        return this.http.get(this.url + this.surveys + this.count, {responseType: 'text'})
+          .pipe(
+            catchError(ApiService.handleError)
+          );
+      case 'date':
+        return this.http.get(this.url + this.surveysDate + this.count, {responseType: 'text'})
+          .pipe(
+            catchError(ApiService.handleError)
+          );
+      case 'location':
+        return this.http.get(this.url + this.surveysLocation + this.count, {responseType: 'text'})
+          .pipe(
+            catchError(ApiService.handleError)
+          );
+      case 'dateLocation':
+        return this.http.get(this.url + this.surveysDateLocation + this.count, {responseType: 'text'})
+          .pipe(
+            catchError(ApiService.handleError)
+          );
+      case 'list':
+        return this.http.get(this.url + this.surveysList + this.count, {responseType: 'text'})
+          .pipe(
+            catchError(ApiService.handleError)
+          );
+    }
   }
 }
 

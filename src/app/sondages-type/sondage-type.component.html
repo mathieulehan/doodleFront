@@ -1,29 +1,28 @@
 <div class="container">
-
-  <mat-card>
-    <mat-card-title>
-      <label [matBadge]="nbSondagesTypeDate" matBadgeOverlap="false">Sondages de type date</label>
-    </mat-card-title>
-  </mat-card>
-  <mat-card>
-    <mat-card-title>
-      <label [matBadge]="nbSondagesTypeDateEtLieu" matBadgeOverlap="false">Sondages de type date & lieu</label>
-    </mat-card-title>
-  </mat-card>
-  <mat-card>
-    <mat-card-title>
-      <label [matBadge]="nbSondagesTypeLieu" matBadgeOverlap="false">Sondages de type lieu</label>
-    </mat-card-title>
-  </mat-card>
-  <mat-card>
-    <mat-card-title>
-      <label [matBadge]="nbSondagesTypeListeChoix" matBadgeOverlap="false">Sondages de type liste de choix</label>
-    </mat-card-title>
-  </mat-card>
-  <mat-card>
-    <mat-card-title>
-      <label [matBadge]="nbSondagesTypeChoix" matBadgeOverlap="false">Sondages de type choix</label>
-    </mat-card-title>
-  </mat-card>
-
+  <mat-tab-group>
+    <mat-tab>
+      <ng-template matTabLabel>
+        <span [matBadge]="nbSondagesTypeDate" matBadgeOverlap="false">Date</span>
+      </ng-template>
+      Sondages concernant une date.
+    </mat-tab>
+    <mat-tab>
+      <ng-template matTabLabel>
+        <span [matBadge]="nbSondagesTypeLieu" matBadgeOverlap="false">Lieu</span>
+      </ng-template>
+      Sondages concernant un lieu.
+    </mat-tab>
+    <mat-tab>
+      <ng-template matTabLabel>
+        <span [matBadge]="nbSondagesTypeDateEtLieu" matBadgeOverlap="false">Date & Lieu</span>
+      </ng-template>
+      Sondages concernant une date et un lieu.
+    </mat-tab>
+    <mat-tab>
+      <ng-template matTabLabel>
+        <span [matBadge]="nbSondagesTypeListeChoix" matBadgeOverlap="false">Choix</span>
+      </ng-template>
+      Sondages constitués d'une liste de choix.
+    </mat-tab>
+  </mat-tab-group>
 </div>
