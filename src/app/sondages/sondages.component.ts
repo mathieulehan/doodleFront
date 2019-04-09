@@ -1,24 +1,18 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Sondage} from 'src/app/models/Sondage.js';
-import {MatPaginator, MatSort} from '@angular/material';
 import {ApiService} from '../api.service';
 
 @Component({
   selector: 'app-sondages',
   templateUrl: './sondages.component.html',
-  styleUrls: ['./sondages.component.css']
+  styleUrls: ['./sondages.component.css'],
+  providers: [ApiService]
 })
 export class SondagesComponent implements OnInit {
-
-  displayedColumns: string[] = ['id', 'title', 'theme', 'owner'];
-
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
-
-  sondages: Sondage[];
-  nbSondages: number;
-  dataSource: any;
-  private ELEMENT_DATA: Sondage[];
+  surveys: Sondage[];
+  nbSondages: string;
+  displayedColumns: string[];
+  private errorMessage: any;
 
   constructor(public api: ApiService) {
   }
@@ -26,25 +20,19 @@ export class SondagesComponent implements OnInit {
   ngOnInit() {
     this.getAllSurveysNumber();
     this.getSurveysFromType('all');
+    this.displayedColumns = ['titre', 'theme', 'id', 'choix'];
   }
 
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
-  }
-
-  private getAllSurveysNumber() {
+  getAllSurveysNumber() {
     this.api.getNumberOfSurveys('all').subscribe(res =>
       this.nbSondages = res
     );
   }
 
-  private getSurveysFromType(type: string) {
-    this.api.getSurveys(type).subscribe(res => {
-      this.sondagesToDisplay = res;
-    });
+  getSurveysFromType(type: string) {
+    this.api.getSurveys(type)
+      .subscribe((response) => {
+        this.surveys = response;
+      });
   }
 }

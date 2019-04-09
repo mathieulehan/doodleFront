@@ -1,5 +1,4 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
-import {Sondage} from '../models/Sondage';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 
 @Component({
@@ -19,7 +18,7 @@ export class MatTableComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dataSource = new MatTableDataSource<Sondage>(this.dataToDisplay);
+    this.dataSource = new MatTableDataSource<any>(this.dataToDisplay);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }

@@ -1,6 +1,6 @@
-export interface Sondage {
+export class Sondage {
   id: number;
   theme: string;
-  title: string;
-  owner: number;
+  titre: string;
+  choix: any[];
 }

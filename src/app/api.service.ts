@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {Observable, throwError} from 'rxjs';
 import {Employe} from './models/Employe';
+import {Sondage} from './models/Sondage';
 import {catchError} from 'rxjs/internal/operators/catchError';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {Sondage} from './models/Sondage';
 
 @Injectable({
   providedIn: 'root'
@@ -75,11 +75,10 @@ export class ApiService {
         catchError(ApiService.handleError)
       );
   }
-
   /**
    * Get surveys
    */
-  getSurveys(type: string) {
+  getSurveys(type: string): Observable<Sondage[]> {
     switch (type) {
       case 'all':
         return this.http.get<Sondage[]>(`${this.url + this.surveys}`)

@@ -9,9 +9,9 @@ import {ApiService} from '../api.service';
   providers: [ApiService]
 })
 export class EmployesComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'birthDate', 'dep'];
   employes: Employe[];
   nbEmployes: string;
+  displayedColumns: string[];
 
   constructor(public api: ApiService) {
   }
@@ -19,17 +19,18 @@ export class EmployesComponent implements OnInit {
   ngOnInit() {
     this.getNumberOfEmployes();
     this.getEmployes();
-  }
-
-  getEmployes() {
-    this.api.getEmployees().subscribe(res => {
-      this.employes = res;
-    });
+    this.displayedColumns = ['id', 'firstName', 'lastName', 'birthDate', 'age', 'departement', 'sondages'];
   }
 
   getNumberOfEmployes() {
     this.api.getNumberOfEmployees().subscribe(res => {
       this.nbEmployes = res;
+    });
+  }
+
+  getEmployes() {
+    this.api.getEmployees().subscribe(res => {
+      this.employes = res;
     });
   }
 }

@@ -3,4 +3,5 @@
     <label [matBadge]="nbSondages" matBadgeOverlap="false">Sondages</label>
   </mat-card-title>
 </mat-card>
-<app-mat-table> *ngIf="sondages" [dataToDisplay]="sondages" [displayedColumns]="displayedColumns"></app-mat-table>
+
+<app-mat-table *ngIf="surveys" [dataToDisplay]="surveys" [displayedColumns]="displayedColumns"></app-mat-table>

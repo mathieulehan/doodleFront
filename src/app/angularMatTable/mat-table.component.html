@@ -4,33 +4,16 @@
   </label>
 </mat-form-field>
 
-<div class="mat-elevation-z8">
+<div class="mat-elevdataSourceation-z8">
   <table [dataSource]="dataSource" mat-table matSort>
-    <!-- Id Column -->
-    <ng-container matColumnDef="id">
-      <th *matHeaderCellDef mat-header-cell mat-sort-header> ID</th>
-      <td *matCellDef="let row" mat-cell> {{row.id}} </td>
-    </ng-container>
 
-    <!-- Title Column -->
-    <ng-container matColumnDef="title">
-      <th *matHeaderCellDef mat-header-cell mat-sort-header> Title</th>
-      <td *matCellDef="let row" mat-cell> {{row.title}} </td>
+    <ng-container *ngFor="let column of displayedColumns" matColumnDef="{{column}}">
+      <mat-header-cell *matHeaderCellDef mat-sort-header="{{column}}">{{column}}</mat-header-cell>
+      <mat-cell *matCellDef="let element "> {{element[column]}}
+      </mat-cell>
     </ng-container>
-
-    <!-- Theme Column -->
-    <ng-container matColumnDef="theme">
-      <th *matHeaderCellDef mat-header-cell mat-sort-header> Theme</th>
-      <td *matCellDef="let row" mat-cell> {{row.theme}} </td>
-    </ng-container>
-
-    <!-- Owner Column -->
-    <ng-container matColumnDef="owner">
-      <th *matHeaderCellDef mat-header-cell mat-sort-header> Owner</th>
-      <td *matCellDef="let row" mat-cell> {{row.owner}} </td>
-    </ng-container>
-    <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
-    <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </table>
   <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 </div>
