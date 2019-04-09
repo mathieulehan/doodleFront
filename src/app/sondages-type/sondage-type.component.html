@@ -1,28 +1,20 @@
 <div class="container">
   <mat-tab-group>
-    <mat-tab>
       <ng-template matTabLabel>
         <span [matBadge]="nbSondagesTypeDate" matBadgeOverlap="false">Date</span>
       </ng-template>
-      Sondages concernant une date.
-    </mat-tab>
-    <mat-tab>
+    <app-mat-table> *ngIf="sondagesToDisplay" [dataToDisplay]="sondagesToDisplay"></app-mat-table>
       <ng-template matTabLabel>
         <span [matBadge]="nbSondagesTypeLieu" matBadgeOverlap="false">Lieu</span>
       </ng-template>
-      Sondages concernant un lieu.
-    </mat-tab>
-    <mat-tab>
+    <app-mat-table> *ngIf="sondagesToDisplay" [dataToDisplay]="sondagesToDisplay"></app-mat-table>
       <ng-template matTabLabel>
         <span [matBadge]="nbSondagesTypeDateEtLieu" matBadgeOverlap="false">Date & Lieu</span>
       </ng-template>
-      Sondages concernant une date et un lieu.
-    </mat-tab>
-    <mat-tab>
+    <app-mat-table> *ngIf="sondagesToDisplay" [dataToDisplay]="sondagesToDisplay"></app-mat-table>
       <ng-template matTabLabel>
         <span [matBadge]="nbSondagesTypeListeChoix" matBadgeOverlap="false">Choix</span>
       </ng-template>
-      Sondages constitués d'une liste de choix.
-    </mat-tab>
+    <app-mat-table> *ngIf="sondagesToDisplay" [dataToDisplay]="sondagesToDisplay"></app-mat-table>
   </mat-tab-group>
 </div>

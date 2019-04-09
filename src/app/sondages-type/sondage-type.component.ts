@@ -13,13 +13,14 @@ export class SondageTypeComponent implements OnInit {
   nbSondagesTypeDateEtLieu: string;
   nbSondagesTypeLieu: string;
   nbSondagesTypeListeChoix: string;
-  nbSondagesTypeChoix: string;
+  displayedColumns: string[] = ['id', 'title', 'theme', 'owner'];
 
   constructor(public api: ApiService) {
   }
 
   ngOnInit() {
     this.getAllSurveysNumber();
+    this.getSurveysFromType('date');
   }
 
   private getAllSurveysNumber() {
@@ -35,5 +36,11 @@ export class SondageTypeComponent implements OnInit {
     this.api.getNumberOfSurveys('list').subscribe(res =>
       this.nbSondagesTypeListeChoix = res
     );
+  }
+
+  private getSurveysFromType(type: string) {
+    this.api.getSurveys(type).subscribe(res => {
+      this.sondagesToDisplay = res;
+    });
   }
 }

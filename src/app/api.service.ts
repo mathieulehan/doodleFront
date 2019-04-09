@@ -77,18 +77,41 @@ export class ApiService {
   }
 
   /**
-   * Get all surveys
+   * Get surveys
    */
-  getSurveys() {
-    return this.http.get<Sondage[]>(`${this.url + this.surveys}`)
-      .pipe(
-        catchError(ApiService.handleError)
-      );
+  getSurveys(type: string) {
+    switch (type) {
+      case 'all':
+        return this.http.get<Sondage[]>(`${this.url + this.surveys}`)
+          .pipe(
+            catchError(ApiService.handleError)
+          );
+      case 'date':
+        return this.http.get<Sondage[]>(`${this.url + this.surveysDate}`)
+          .pipe(
+            catchError(ApiService.handleError)
+          );
+      case 'location':
+        return this.http.get<Sondage[]>(`${this.url + this.surveysLocation}`)
+          .pipe(
+            catchError(ApiService.handleError)
+          );
+      case 'dateLocation':
+        return this.http.get<Sondage[]>(`${this.url + this.surveysDateLocation}`)
+          .pipe(
+            catchError(ApiService.handleError)
+          );
+      case 'list':
+        return this.http.get<Sondage[]>(`${this.url + this.surveysList}`)
+          .pipe(
+            catchError(ApiService.handleError)
+          );
+    }
   }
 
   /**
    * Get a survey by its id
-   * @param id
+   * @param id : survey's id
    */
   getSurvey(id: number) {
     return this.http.get<Sondage>(`${this.url + this.surveys + id}`)

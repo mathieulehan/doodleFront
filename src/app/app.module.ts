@@ -29,6 +29,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTableModule} from '@angular/material/table';
 import {MatTabsModule} from '@angular/material/tabs';
 import 'hammerjs';
+import {MatTableComponent} from './angularMatTable/mat-table.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import 'hammerjs';
     EmployesCountComponent,
     SondagesComponent,
     SondagesTypeCountComponent,
+    MatTableComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import {Component, OnInit} from '@angular/core';
 import {Employe} from 'src/app/models/Employe.js';
 import {ApiService} from '../api.service';
 
@@ -11,9 +10,6 @@ import {ApiService} from '../api.service';
 })
 export class EmployesComponent implements OnInit {
   displayedColumns: string[] = ['id', 'firstName', 'lastName', 'birthDate', 'dep'];
-  dataSource: MatTableDataSource<Employe[]>;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
   employes: Employe[];
   nbEmployes: string;
 
@@ -23,10 +19,6 @@ export class EmployesComponent implements OnInit {
   ngOnInit() {
     this.getNumberOfEmployes();
     this.getEmployes();
-    // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(this.employes);
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
   }
 
   getEmployes() {
@@ -39,13 +31,5 @@ export class EmployesComponent implements OnInit {
     this.api.getNumberOfEmployees().subscribe(res => {
       this.nbEmployes = res;
     });
-  }
-
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
   }
 }
