@@ -11,6 +11,7 @@ import {
   MatDividerModule,
   MatInputModule,
   MatPaginatorModule,
+  MatProgressSpinnerModule,
   MatSidenavModule,
   MatSortModule
 } from '@angular/material';
@@ -61,7 +62,8 @@ import {MatTableComponent} from './angularMatTable/mat-table.component';
     MatInputModule,
     MatSortModule,
     MatDividerModule,
-    MatTabsModule
+    MatTabsModule,
+    MatProgressSpinnerModule
   ],
   exports: [MatSidenavModule, MatButtonModule, MatTreeModule],
   providers: [ApiService],

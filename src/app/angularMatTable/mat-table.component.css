@@ -7,6 +7,10 @@ table {
   width: 100%;
 }
 
+mat-progress-spinner {
+  height: 20px;
+}
+
 td, th {
   width: 25%;
 }
