@@ -9,29 +9,30 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
   providedIn: 'root'
 })
 export class ApiService {
-  url: string;
-  urlEmployees: string;
-  count: string;
-  surveys: string;
-  surveysDate: string;
-  surveysLocation: string;
-  surveysDateLocation: string;
-  surveysList: string;
+  // routes
+  baseRoute: string;
+  employeesRoute: string;
+  countRoute: string;
+  surveysRoute: string;
+  surveysDateRoute: string;
+  surveysLocationRoute: string;
+  surveysDateLocationRoute: string;
+  surveysListRoute: string;
 
   constructor(private http: HttpClient) {
-    this.url = '/api/';
+    this.baseRoute = '/api/';
     // employees
-    this.urlEmployees = 'employees/';
+    this.employeesRoute = 'employees/';
 
-    // surveys
-    this.surveys = 'surveys/';
-    this.surveysDate = 'dateSurveys/';
-    this.surveysLocation = 'locationSurveys/';
-    this.surveysDateLocation = 'dateLocationSurveys/';
-    this.surveysList = 'listSurveys/';
+    // surveysRoute
+    this.surveysRoute = 'surveys/';
+    this.surveysDateRoute = 'dateSurveys/';
+    this.surveysLocationRoute = 'locationSurveys/';
+    this.surveysDateLocationRoute = 'dateLocationSurveys/';
+    this.surveysListRoute = 'listSurveys/';
 
     // operations
-    this.count = 'count';
+    this.countRoute = 'count';
   }
 
   private static handleError(error: HttpErrorResponse) {
@@ -49,8 +50,8 @@ export class ApiService {
   /**
    * Get the list of employees
    */
-  getEmployees(): Observable<Employe[]> {
-    return this.http.get<Employe[]>(`${this.url + this.urlEmployees}`)
+  getEmployees() {
+    return this.http.get<Employe[]>(`${this.baseRoute + this.employeesRoute}`)
       .pipe(
         catchError(ApiService.handleError)
       );
@@ -60,7 +61,7 @@ export class ApiService {
    * Get an employee
    */
   getEmploye(id: number): Observable<Employe> {
-    return this.http.get<Employe>(`${this.url + this.urlEmployees + id}`)
+    return this.http.get<Employe>(`${this.baseRoute + this.employeesRoute + id}`)
       .pipe(
         catchError(ApiService.handleError)
       );
@@ -70,38 +71,38 @@ export class ApiService {
    * Get the number of registered employees
    */
   getNumberOfEmployees() {
-    return this.http.get(this.url + this.urlEmployees + this.count, {responseType: 'text'})
+    return this.http.get(this.baseRoute + this.employeesRoute + this.countRoute, {responseType: 'text'})
       .pipe(
         catchError(ApiService.handleError)
       );
   }
   /**
-   * Get surveys
+   * Get surveysRoute
    */
   getSurveys(type: string): Observable<Sondage[]> {
     switch (type) {
       case 'all':
-        return this.http.get<Sondage[]>(`${this.url + this.surveys}`)
+        return this.http.get<Sondage[]>(`${this.baseRoute + this.surveysRoute}`)
           .pipe(
             catchError(ApiService.handleError)
           );
       case 'date':
-        return this.http.get<Sondage[]>(`${this.url + this.surveysDate}`)
+        return this.http.get<Sondage[]>(`${this.baseRoute + this.surveysDateRoute}`)
           .pipe(
             catchError(ApiService.handleError)
           );
       case 'location':
-        return this.http.get<Sondage[]>(`${this.url + this.surveysLocation}`)
+        return this.http.get<Sondage[]>(`${this.baseRoute + this.surveysLocationRoute}`)
           .pipe(
             catchError(ApiService.handleError)
           );
       case 'dateLocation':
-        return this.http.get<Sondage[]>(`${this.url + this.surveysDateLocation}`)
+        return this.http.get<Sondage[]>(`${this.baseRoute + this.surveysDateLocationRoute}`)
           .pipe(
             catchError(ApiService.handleError)
           );
       case 'list':
-        return this.http.get<Sondage[]>(`${this.url + this.surveysList}`)
+        return this.http.get<Sondage[]>(`${this.baseRoute + this.surveysListRoute}`)
           .pipe(
             catchError(ApiService.handleError)
           );
@@ -113,39 +114,39 @@ export class ApiService {
    * @param id : survey's id
    */
   getSurvey(id: number) {
-    return this.http.get<Sondage>(`${this.url + this.surveys + id}`)
+    return this.http.get<Sondage>(`${this.baseRoute + this.surveysRoute + id}`)
       .pipe(
         catchError(ApiService.handleError)
       );
   }
 
   /**
-   * Get the number of created surveys
+   * Get the number of created surveysRoute
    */
   getNumberOfSurveys(type: string) {
     switch (type) {
       case 'all':
-        return this.http.get(this.url + this.surveys + this.count, {responseType: 'text'})
+        return this.http.get(this.baseRoute + this.surveysRoute + this.countRoute, {responseType: 'text'})
           .pipe(
             catchError(ApiService.handleError)
           );
       case 'date':
-        return this.http.get(this.url + this.surveysDate + this.count, {responseType: 'text'})
+        return this.http.get(this.baseRoute + this.surveysDateRoute + this.countRoute, {responseType: 'text'})
           .pipe(
             catchError(ApiService.handleError)
           );
       case 'location':
-        return this.http.get(this.url + this.surveysLocation + this.count, {responseType: 'text'})
+        return this.http.get(this.baseRoute + this.surveysLocationRoute + this.countRoute, {responseType: 'text'})
           .pipe(
             catchError(ApiService.handleError)
           );
       case 'dateLocation':
-        return this.http.get(this.url + this.surveysDateLocation + this.count, {responseType: 'text'})
+        return this.http.get(this.baseRoute + this.surveysDateLocationRoute + this.countRoute, {responseType: 'text'})
           .pipe(
             catchError(ApiService.handleError)
           );
       case 'list':
-        return this.http.get(this.url + this.surveysList + this.count, {responseType: 'text'})
+        return this.http.get(this.baseRoute + this.surveysListRoute + this.countRoute, {responseType: 'text'})
           .pipe(
             catchError(ApiService.handleError)
           );

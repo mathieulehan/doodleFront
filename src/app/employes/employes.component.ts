@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Employe} from 'src/app/models/Employe.js';
 import {ApiService} from '../api.service';
 
 @Component({
@@ -9,7 +8,7 @@ import {ApiService} from '../api.service';
   providers: [ApiService]
 })
 export class EmployesComponent implements OnInit {
-  employes: Employe[];
+  employes;
   nbEmployes: string;
   displayedColumns: string[];
 
@@ -23,14 +22,29 @@ export class EmployesComponent implements OnInit {
   }
 
   getNumberOfEmployes() {
-    this.api.getNumberOfEmployees().subscribe(res => {
-      this.nbEmployes = res;
-    });
+    this.nbEmployes = localStorage.getItem('employeesNumber');
+    if (this.nbEmployes === null) {
+      this.api.getNumberOfEmployees().subscribe(res => {
+        localStorage.setItem('employeesNumber', res);
+      });
+    } else {
+      this.nbEmployes = JSON.parse(localStorage.getItem('employeesNumber'));
+    }
   }
 
   getEmployes() {
-    this.api.getEmployees().subscribe(res => {
-      this.employes = res;
-    });
+    if (!this.isInLocalStorage('employees')) {
+      this.api.getEmployees().subscribe(res => {
+          localStorage.setItem('employees', JSON.stringify(res));
+        },
+        this.employes = JSON.parse(localStorage.getItem('employees')));
+    } else {
+      this.employes = JSON.parse(localStorage.getItem('employees'));
+    }
   }
+
+  isInLocalStorage(key: string) {
+    return !localStorage.getItem(key) === null;
+  }
+
 }

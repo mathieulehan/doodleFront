@@ -1,5 +1,5 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
-import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import {MatPaginator, MatSort, MatTable, MatTableDataSource} from '@angular/material';
 
 @Component({
   selector: 'app-mat-table',
@@ -10,6 +10,7 @@ export class MatTableComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatTable) table: MatTable<any>;
   dataSource: any;
   @Input() dataToDisplay: any[];
   @Input() displayedColumns: string[];

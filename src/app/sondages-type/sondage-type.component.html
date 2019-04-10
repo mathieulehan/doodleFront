@@ -1,20 +1,44 @@
 <div class="container">
   <mat-tab-group>
+    <mat-tab>
       <ng-template matTabLabel>
-        <span [matBadge]="nbSondagesTypeDate" matBadgeOverlap="false">Date</span>
+        <span (click)="getSurveysFromType('date')" *ngIf="surveysDateNumber" [matBadge]="surveysDateNumber"
+              matBadgeOverlap="false">Date</span>
       </ng-template>
-    <app-mat-table> *ngIf="sondagesToDisplay" [dataToDisplay]="sondagesToDisplay"></app-mat-table>
+      <ng-template matTabContent>
+        <app-mat-table *ngIf="sondagesToDisplay" [dataToDisplay]="sondagesToDisplay"
+                       [displayedColumns]="displayedColumns"></app-mat-table>
+      </ng-template>
+    </mat-tab>
+    <mat-tab>
       <ng-template matTabLabel>
-        <span [matBadge]="nbSondagesTypeLieu" matBadgeOverlap="false">Lieu</span>
+        <span (click)="getSurveysFromType('location')" *ngIf="surveysLocationNumber" [matBadge]="surveysLocationNumber"
+              matBadgeOverlap="false">Lieu</span>
       </ng-template>
-    <app-mat-table> *ngIf="sondagesToDisplay" [dataToDisplay]="sondagesToDisplay"></app-mat-table>
+      <ng-template matTabContent>
+        <app-mat-table *ngIf="sondagesToDisplay" [dataToDisplay]="sondagesToDisplay"
+                       [displayedColumns]="displayedColumns"></app-mat-table>
+      </ng-template>
+    </mat-tab>
+    <mat-tab>
       <ng-template matTabLabel>
-        <span [matBadge]="nbSondagesTypeDateEtLieu" matBadgeOverlap="false">Date & Lieu</span>
+        <span (click)="getSurveysFromType('dateLocation')" *ngIf="surveysDateLocationNumber"
+              [matBadge]="surveysDateLocationNumber" matBadgeOverlap="false">Date & Lieu</span>
       </ng-template>
-    <app-mat-table> *ngIf="sondagesToDisplay" [dataToDisplay]="sondagesToDisplay"></app-mat-table>
+      <ng-template matTabContent>
+        <app-mat-table *ngIf="sondagesToDisplay" [dataToDisplay]="sondagesToDisplay"
+                       [displayedColumns]="displayedColumns"></app-mat-table>
+      </ng-template>
+    </mat-tab>
+    <mat-tab>
       <ng-template matTabLabel>
-        <span [matBadge]="nbSondagesTypeListeChoix" matBadgeOverlap="false">Choix</span>
+        <span (click)="getSurveysFromType('list'); refresh()" *ngIf="surveysListNumber" [matBadge]="surveysListNumber"
+              matBadgeOverlap="false">Liste de choix</span>
       </ng-template>
-    <app-mat-table> *ngIf="sondagesToDisplay" [dataToDisplay]="sondagesToDisplay"></app-mat-table>
+      <ng-template matTabContent>
+        <app-mat-table *ngIf="sondagesToDisplay" [dataToDisplay]="sondagesToDisplay"
+                       [displayedColumns]="displayedColumns"></app-mat-table>
+      </ng-template>
+    </mat-tab>
   </mat-tab-group>
 </div>
