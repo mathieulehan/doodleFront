@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {SidenavComponent} from './sidenav.component';
-import {MatListModule, MatSidenavModule} from '@angular/material';
+import {MatButtonModule, MatListModule, MatSidenavModule} from '@angular/material';
 import {MatCardModule} from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
 import {AppRoutingModule} from '../app-routing.module';
@@ -13,7 +13,8 @@ import {AppRoutingModule} from '../app-routing.module';
     MatCardModule,
     AppRoutingModule,
     MatListModule,
-    MatDividerModule
+    MatDividerModule,
+    MatButtonModule
   ],
   declarations: [SidenavComponent],
   exports: [SidenavComponent, MatDividerModule]

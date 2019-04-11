@@ -3,7 +3,7 @@
     <mat-tab>
       <ng-template matTabLabel>
         <span *ngIf="surveysDateNumber" [matBadge]="surveysDateNumber"
-              matBadgeOverlap="false">une ddate>
+              matBadgeOverlap="false" matTooltip="Nombre de sondages de ce type">Date
         </span>
       </ng-template>
       <ng-template matTabContent>
@@ -15,7 +15,7 @@
       <ng-template matTabLabel>
         <span *ngIf="surveysLocationNumber"
               [matBadge]="surveysLocationNumber"
-              matBadgeOverlap="false">Lieu
+              matBadgeOverlap="false" matTooltip="Nombre de sondages de ce type">Lieu
         </span>
       </ng-template>
       <ng-template matTabContent>
@@ -26,7 +26,7 @@
     <mat-tab>
       <ng-template matTabLabel>
         <span *ngIf="surveysDateLocationNumber"
-              [matBadge]="surveysDateLocationNumber" matBadgeOverlap="false">Date & Lieu
+              [matBadge]="surveysDateLocationNumber" matBadgeOverlap="false" matTooltip="Nombre de sondages de ce type">Date & Lieu
         </span>
       </ng-template>
       <ng-template matTabContent>
@@ -37,7 +37,7 @@
     <mat-tab>
       <ng-template matTabLabel>
         <span *ngIf="surveysListNumber" [matBadge]="surveysListNumber"
-              matBadgeOverlap="false">Liste de choix
+              matBadgeOverlap="false" matTooltip="Nombre de sondages de ce type">Liste de choix
         </span>
       </ng-template>
       <ng-template matTabContent>
