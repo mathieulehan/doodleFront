@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService} from '../api.service';
+import {MatTabChangeEvent} from '@angular/material';
 
 @Component({
   selector: 'app-sondage-type',
@@ -74,5 +75,22 @@ export class SondageTypeComponent implements OnInit {
         this.sondagesToDisplay = JSON.parse(localStorage.getItem('surveysToDisplay'));
       },
     );
+  }
+
+  onLinkClick(event: MatTabChangeEvent) {
+    switch (event.index) {
+      case 0:
+        this.getSurveysFromType('date');
+        break;
+      case 1:
+        this.getSurveysFromType('location');
+        break;
+      case 2:
+        this.getSurveysFromType('dateLocation');
+        break;
+      case 3:
+        this.getSurveysFromType('list');
+        break;
+    }
   }
 }

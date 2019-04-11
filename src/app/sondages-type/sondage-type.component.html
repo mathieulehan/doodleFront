@@ -1,11 +1,11 @@
 <div class="container">
   is loading : {{isLoading}}
-  <mat-tab-group>
+  <mat-tab-group (selectedTabChange)="onLinkClick($event)">
     <mat-tab>
       <ng-template matTabLabel>
-        <button (click)="getSurveysFromType('date')" *ngIf="surveysDateNumber" [matBadge]="surveysDateNumber"
-                matBadgeOverlap="false">une ddate
-        </button>
+        <span *ngIf="surveysDateNumber" [matBadge]="surveysDateNumber"
+              matBadgeOverlap="false">une ddate>
+        </span>
       </ng-template>
       <ng-template matTabContent>
         <app-mat-table *ngIf="sondagesToDisplay" [dataToDisplay]="sondagesToDisplay"
@@ -14,10 +14,10 @@
     </mat-tab>
     <mat-tab>
       <ng-template matTabLabel>
-        <button (click)="getSurveysFromType('location')" *ngIf="surveysLocationNumber"
-                [matBadge]="surveysLocationNumber"
-                matBadgeOverlap="false">Lieu
-        </button>
+        <span *ngIf="surveysLocationNumber"
+              [matBadge]="surveysLocationNumber"
+              matBadgeOverlap="false">Lieu
+        </span>
       </ng-template>
       <ng-template matTabContent>
         <app-mat-table *ngIf="sondagesToDisplay" [dataToDisplay]="sondagesToDisplay"
@@ -26,9 +26,9 @@
     </mat-tab>
     <mat-tab>
       <ng-template matTabLabel>
-        <button (click)="getSurveysFromType('dateLocation')" *ngIf="surveysDateLocationNumber"
-                [matBadge]="surveysDateLocationNumber" matBadgeOverlap="false">Date & Lieu
-        </button>
+        <span *ngIf="surveysDateLocationNumber"
+              [matBadge]="surveysDateLocationNumber" matBadgeOverlap="false">Date & Lieu
+        </span>
       </ng-template>
       <ng-template matTabContent>
         <app-mat-table *ngIf="sondagesToDisplay" [dataToDisplay]="sondagesToDisplay"
@@ -37,9 +37,9 @@
     </mat-tab>
     <mat-tab>
       <ng-template matTabLabel>
-        <button (click)="getSurveysFromType('list')" *ngIf="surveysListNumber" [matBadge]="surveysListNumber"
-                matBadgeOverlap="false">Liste de choix
-        </button>
+        <span *ngIf="surveysListNumber" [matBadge]="surveysListNumber"
+              matBadgeOverlap="false">Liste de choix
+        </span>
       </ng-template>
       <ng-template matTabContent>
         <app-mat-table *ngIf="sondagesToDisplay" [dataToDisplay]="sondagesToDisplay"

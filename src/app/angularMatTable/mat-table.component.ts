@@ -12,7 +12,7 @@ export class MatTableComponent implements OnChanges, OnInit {
   @ViewChild(MatTable) table: MatTable<any>;
   @Input() dataToDisplay: any[];
   @Input() displayedColumns: string[];
-  @Input() isLoading = true;
+  @Input() isLoading: boolean;
   private dataSource: MatTableDataSource<any>;
   constructor() {
   }
