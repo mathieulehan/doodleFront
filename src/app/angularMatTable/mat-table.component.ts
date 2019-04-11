@@ -22,6 +22,11 @@ export class MatTableComponent implements OnInit {
       this.dataSource = new MatTableDataSource<any>(this.dataToDisplay);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+      this.dataSource.paginator._intl.itemsPerPageLabel = 'Nombre maximum de lignes par page';
+      this.dataSource.paginator._intl.previousPageLabel = 'Page précédente';
+      this.dataSource.paginator._intl.nextPageLabel = 'Page suivante';
+      this.dataSource.paginator._intl.firstPageLabel = 'Première page';
+      this.dataSource.paginator._intl.lastPageLabel = 'Dernière page';
     }
   }
 
