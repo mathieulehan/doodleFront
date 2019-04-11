@@ -4,4 +4,5 @@
   </mat-card-title>
 </mat-card>
 
-<app-mat-table *ngIf="employes" [dataToDisplay]="employes" [displayedColumns]="displayedColumns"></app-mat-table>
+<app-mat-table *ngIf="employes" [dataToDisplay]="employes" [displayedColumns]="displayedColumns"
+               [isLoading]="isLoading"></app-mat-table>

@@ -9,10 +9,10 @@ import {ApiService} from '../api.service';
   providers: [ApiService]
 })
 export class SondagesComponent implements OnInit {
+  isLoading: boolean;
   surveys: Sondage[];
   nbSondages: string;
   displayedColumns: string[];
-  private errorMessage: any;
 
   constructor(public api: ApiService) {
   }
@@ -30,9 +30,13 @@ export class SondagesComponent implements OnInit {
   }
 
   getSurveysFromType(type: string) {
+    this.isLoading = true;
+    this.surveys = undefined;
     this.api.getSurveys(type)
       .subscribe((response) => {
-        this.surveys = response;
+        this.isLoading = false;
+        localStorage.setItem('surveysToDisplay', JSON.stringify(response));
+        this.surveys = JSON.parse(localStorage.getItem('surveysToDisplay'));
       });
   }
 }

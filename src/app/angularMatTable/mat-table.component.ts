@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, SimpleChange, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort, MatTable, MatTableDataSource} from '@angular/material';
 
 @Component({
@@ -6,7 +6,7 @@ import {MatPaginator, MatSort, MatTable, MatTableDataSource} from '@angular/mate
   templateUrl: './mat-table.component.html',
   styleUrls: ['./mat-table.component.css']
 })
-export class MatTableComponent implements OnChanges, OnInit {
+export class MatTableComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatTable) table: MatTable<any>;
@@ -15,14 +15,6 @@ export class MatTableComponent implements OnChanges, OnInit {
   @Input() isLoading: boolean;
   private dataSource: MatTableDataSource<any>;
   constructor() {
-  }
-
-  ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
-    /*for (const change in changes) {
-      let changedProp = changes[change];
-      console.log(change + ' prec : ' + changedProp.previousValue);
-      console.log(change + ' act : ' + changedProp.currentValue);
-    }*/
   }
 
   ngOnInit() {

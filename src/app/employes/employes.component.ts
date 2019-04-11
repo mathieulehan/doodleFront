@@ -8,11 +8,16 @@ import {ApiService} from '../api.service';
   providers: [ApiService]
 })
 export class EmployesComponent implements OnInit {
-  employes;
+  employes: any;
   nbEmployes: string;
   displayedColumns: string[];
+  isLoading: boolean;
 
   constructor(public api: ApiService) {
+  }
+
+  static isInLocalStorage(key: string) {
+    return !(localStorage.getItem(key) === null || !localStorage.getItem(key) === undefined);
   }
 
   ngOnInit() {
@@ -33,18 +38,19 @@ export class EmployesComponent implements OnInit {
   }
 
   getEmployes() {
-    if (!this.isInLocalStorage('employees')) {
+    this.isLoading = true;
+    this.employes = undefined;
+    if (!EmployesComponent.isInLocalStorage('employees')) {
       this.api.getEmployees().subscribe(res => {
+          this.isLoading = false;
           localStorage.setItem('employees', JSON.stringify(res));
         },
         this.employes = JSON.parse(localStorage.getItem('employees')));
     } else {
+      this.isLoading = false;
       this.employes = JSON.parse(localStorage.getItem('employees'));
     }
-  }
-
-  isInLocalStorage(key: string) {
-    return !localStorage.getItem(key) === null;
+    console.log(this.employes);
   }
 
 }
