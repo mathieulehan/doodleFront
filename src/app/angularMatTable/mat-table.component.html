@@ -1,11 +1,11 @@
 <mat-form-field>
   <label>
-    <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Filter">
+    <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Filtrer par...">
   </label>
 </mat-form-field>
 
 <div class="mat-elevdataSourceation-z8">
-  <table [dataSource]="dataSource" mat-table matSort>
+  <table *ngIf="dataToDisplay" [dataSource]="dataSource" mat-table matSort>
 
     <ng-container *ngFor="let column of displayedColumns" matColumnDef="{{column}}">
       <mat-header-cell *matHeaderCellDef mat-sort-header="{{column}}" matTooltip="Trier par cette colonne"
@@ -18,9 +18,3 @@
   </table>
   <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 </div>
-<mat-card *ngIf="isLoading" style="display: flex; justify-content: center; align-items: center">
-  <mat-progress-spinner
-    color="primary"
-    mode="indeterminate">
-  </mat-progress-spinner>
-</mat-card>

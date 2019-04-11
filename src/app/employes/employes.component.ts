@@ -50,7 +50,6 @@ export class EmployesComponent implements OnInit {
       this.isLoading = false;
       this.employes = JSON.parse(localStorage.getItem('employees'));
     }
-    console.log(this.employes);
   }
 
 }
