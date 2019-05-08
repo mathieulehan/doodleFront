@@ -1,27 +1,36 @@
 # DoodleFront
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.5.
+Projet universitaire répliquant le fonctionnement de doodle, le célèbre site de sondages en ligne.
+Ce projet se base sur un frontend Angular 7 et d'un backend Java 8.
 
-## Development server
+## Frontend
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Angular 7 permet d'avoir une Single Page Application bien structurée plutôt simplement.
+Le frontend appelle l'api REST mis en place par le backend décrit plus bas.
 
-## Code scaffolding
+Avec les données récupérées,
+on construit et alimente les divers tableaux présentés aux utilisateurs.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Angular Material a été ajouté au projet afin d'avoir une interface moderne et user-friendly.
 
-## Build
+## Backend
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Le frontend appelle l'api REST du backend afin de récupérer des informations.
+Le backend ce situe dans ce [repo](https://github.com/mathieulehan/TP_SIR).
 
-## Running unit tests
+## Fonctionnalités
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Via le menu qui se dévoile à gauche de l'interface, on peut :
+- voir les employés existants
+- obtenir le nombre d'employés existants
+- à partir de son id, récupérer les informations concernant l'employé
+- voir les sondages existants
+- voir les sondages en fonction de leur type
+- compter les sondages
+- compter les sondages de chaque type
+- voir un sondage à partir de son id
+- supprimer un sondage à partir de son id
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Les différents tableaux affichables sont dotés de pagination,
+permettent de trier les résultats affichés en fonction d'une entrée utilisateur, 
+et enfin permettent de trier les colonnes (ascendant / descendant)
