@@ -17,6 +17,9 @@ export class EmployesCountComponent implements OnInit {
     this.getNumberOfEmployes();
   }
 
+  /**
+   * get the number of registered employees from the api
+   */
   private getNumberOfEmployes() {
     this.api.getNumberOfEmployees().subscribe(res => {
       this.nbEmployes = res;

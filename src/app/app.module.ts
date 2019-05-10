@@ -6,14 +6,14 @@ import {SondageComponent} from './sondage/sondage.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SidenavComponent} from './sidenav/sidenav.component';
 import {
-  MatBadgeModule,
-  MatCardModule,
-  MatDividerModule,
-  MatInputModule,
-  MatPaginatorModule,
-  MatProgressSpinnerModule,
-  MatSidenavModule,
-  MatSortModule
+    MatBadgeModule,
+    MatCardModule,
+    MatDividerModule,
+    MatInputModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule,
+    MatSidenavModule,
+    MatSortModule
 } from '@angular/material';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTreeModule} from '@angular/material/tree';

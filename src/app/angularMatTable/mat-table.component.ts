@@ -12,16 +12,19 @@ export class MatTableComponent implements OnInit {
   @ViewChild(MatTable) table: MatTable<any>;
   @Input() dataToDisplay: any[];
   @Input() displayedColumns: string[];
+  // is data to display loading ?
   @Input() isLoading: boolean;
   private dataSource: MatTableDataSource<any>;
   constructor() {
   }
 
   ngOnInit() {
+    // mat table is built when data is loaded
     if (this.isLoading === false) {
       this.dataSource = new MatTableDataSource<any>(this.dataToDisplay);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+      // french translations
       this.dataSource.paginator._intl.itemsPerPageLabel = 'Nombre maximum de lignes par page';
       this.dataSource.paginator._intl.previousPageLabel = 'Page précédente';
       this.dataSource.paginator._intl.nextPageLabel = 'Page suivante';
@@ -33,6 +36,7 @@ export class MatTableComponent implements OnInit {
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
+    // first page is displayed by default
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }

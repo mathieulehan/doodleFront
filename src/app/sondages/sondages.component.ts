@@ -17,6 +17,12 @@ export class SondagesComponent implements OnInit {
   constructor(public api: ApiService) {
   }
 
+  /**
+   * On init :
+   *  gets all existing surveys
+   *  gets the number of created surveys
+   *  defines columns to use in mat table
+   */
   ngOnInit() {
     this.getAllSurveysNumber();
     this.getSurveysFromType('all');

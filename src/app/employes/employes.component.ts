@@ -26,6 +26,10 @@ export class EmployesComponent implements OnInit {
     this.displayedColumns = ['id', 'firstName', 'lastName', 'birthDate', 'age', 'departement', 'sondages'];
   }
 
+  /**
+   * get the number of registered employees from the api
+   * only if it has not been fetched already
+   */
   getNumberOfEmployes() {
     this.nbEmployes = localStorage.getItem('employeesNumber');
     if (this.nbEmployes === null) {
@@ -37,6 +41,10 @@ export class EmployesComponent implements OnInit {
     }
   }
 
+  /**
+   * get all employees from the api
+   * only if they have not been fetched already
+   */
   getEmployes() {
     this.isLoading = true;
     this.employes = undefined;

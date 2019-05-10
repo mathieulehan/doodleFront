@@ -18,6 +18,10 @@ export class EmployeComponent implements OnInit {
     this.getEmploye(1);
   }
 
+  /**
+   * get an employe by its id from the api
+   * @param id employe's id
+   */
   private getEmploye(id: number) {
     this.api.getEmploye(id).subscribe(res => {
       this.employeToDisplay = res;

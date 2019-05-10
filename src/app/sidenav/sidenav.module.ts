@@ -6,6 +6,9 @@ import {MatCardModule} from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
 import {AppRoutingModule} from '../app-routing.module';
 
+/**
+ * All modules used in sidenav
+ */
 @NgModule({
   imports: [
     CommonModule,
