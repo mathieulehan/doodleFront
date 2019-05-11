@@ -1,0 +1,7 @@
+<mat-form-field *ngIf="surveys">
+    <mat-select (selectionChange)="selectSurvey($event.value)" [(ngModel)]="selectedSurvey" placeholder="Select">
+        <mat-option *ngFor="let survey of surveys"
+                    [value]="survey">{{survey.titre}}</mat-option>
+    </mat-select>
+</mat-form-field>
+<app-answer-survey *ngIf="selectedSurvey"></app-answer-survey>

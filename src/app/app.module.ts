@@ -37,6 +37,8 @@ import {AddDepartmentComponent} from './add-department/add-department.component'
 import {FormsModule} from '@angular/forms';
 import {AddEmployeeComponent} from './add-employee/add-employee.component';
 import {AddSurveyComponent} from './add-survey/add-survey.component';
+import {AnswerSurveysComponent} from './answer-surveys/answer-surveys.component';
+import {AnswerSurveyComponent} from './answer-survey/answer-survey.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,8 @@ import {AddSurveyComponent} from './add-survey/add-survey.component';
       AddDepartmentComponent,
       AddEmployeeComponent,
       AddSurveyComponent,
+      AnswerSurveysComponent,
+      AnswerSurveyComponent,
   ],
     imports: [
         BrowserModule,
