@@ -36,6 +36,7 @@ import {MatTableComponent} from './angularMatTable/mat-table.component';
 import {AddDepartmentComponent} from './add-department/add-department.component';
 import {FormsModule} from '@angular/forms';
 import {AddEmployeeComponent} from './add-employee/add-employee.component';
+import {AddSurveyComponent} from './add-survey/add-survey.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import {AddEmployeeComponent} from './add-employee/add-employee.component';
     MatTableComponent,
       AddDepartmentComponent,
       AddEmployeeComponent,
+      AddSurveyComponent,
   ],
     imports: [
         BrowserModule,

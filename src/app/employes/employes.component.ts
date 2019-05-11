@@ -48,16 +48,9 @@ export class EmployesComponent implements OnInit {
   getEmployes() {
     this.isLoading = true;
     this.employes = undefined;
-    if (!EmployesComponent.isInLocalStorage('employees')) {
-      this.api.getEmployees().subscribe(res => {
-          this.isLoading = false;
-          localStorage.setItem('employees', JSON.stringify(res));
-        },
-        this.employes = JSON.parse(localStorage.getItem('employees')));
-    } else {
-      this.isLoading = false;
-      this.employes = JSON.parse(localStorage.getItem('employees'));
-    }
+    this.api.getEmployees().subscribe(res => {
+      this.isLoading = false, this.employes = res;
+    });
   }
 
 }

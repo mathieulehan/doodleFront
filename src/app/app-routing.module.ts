@@ -11,6 +11,7 @@ import {SondagesComponent} from './sondages/sondages.component';
 import {SondagesTypeCountComponent} from './sondages-type-count/sondages-type-count.component';
 import {AddDepartmentComponent} from './add-department/add-department.component';
 import {AddEmployeeComponent} from './add-employee/add-employee.component';
+import {AddSurveyComponent} from './add-survey/add-survey.component';
 
 const routes: Routes = [
   {path: '', component: AppComponent},
@@ -23,7 +24,9 @@ const routes: Routes = [
   {path: 'employes', component: EmployesComponent},
     {path: 'employes-count', component: EmployesCountComponent},
     {path: 'addDepartment', component: AddDepartmentComponent},
-    {path: 'addEmployee', component: AddEmployeeComponent}
+  {path: 'addEmployee', component: AddEmployeeComponent},
+  {path: 'addSurvey', component: AddSurveyComponent}
+
 
 ];
 

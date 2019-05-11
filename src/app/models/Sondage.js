@@ -7,3 +7,6 @@ export class Sondage {
   titre: string;
   choix: any[];
 }
+
+
+

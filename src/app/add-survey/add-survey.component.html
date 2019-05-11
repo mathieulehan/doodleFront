@@ -1,0 +1,42 @@
+<h1>Créer un sondage</h1>
+<br>
+Vous êtes ?
+<mat-form-field>
+    <mat-select [(ngModel)]="sondage.employee" placeholder="Select">
+        <mat-option *ngFor="let employee of employees"
+                    [value]="employee">{{employee.firstName}} {{employee.lastName}}</mat-option>
+    </mat-select>
+</mat-form-field>
+<div id="form_default">
+    Titre du sondage : <label>
+    <input [(ngModel)]="sondage.titre" name="title" size=20 type="text">
+</label><br><br>
+    Thème du sondage : <label>
+    <input [(ngModel)]="sondage.theme" name="theme" size=40 type="text">
+</label><br><br>
+</div>
+<select [(ngModel)]="sondageType" name="survey_selector">
+    <option value="sondage_date">Sondage portant sur une date</option>
+    <option value="sondage_date_lieu">Sondage portant sur une date et un lieu</option>
+    <option value="sondage_lieu">Sondage portant sur un lieu</option>
+    <option value="sondage_liste">Sondage proposant une liste de choix définis</option>
+</select>
+<br><br>
+<div id="form_date">
+    Date proposée : <label>
+    <input [(ngModel)]="sondage.choix_date" name="date" type="date">
+</label><BR>
+</div>
+<div id="form_lieu">
+    Lieu proposé : <label>
+    <input [(ngModel)]="sondage.choix_location" name="location2" type="text">
+</label><br>
+</div>
+<div id="form_liste">
+    <fieldset id="buildyourform">
+        <legend>Ajoutez les choix !</legend>
+    </fieldset>
+    <input class="add" id="add" type="button" value="Ajoutez un choix"/>
+</div>
+<br>
+<input (click)="addSurvey()" type="button" value="Créer le sondage"/>

@@ -48,8 +48,7 @@ export class SondagesComponent implements OnInit {
     this.api.getSurveys(type)
       .subscribe((response) => {
         this.isLoading = false;
-        localStorage.setItem('surveysToDisplay', JSON.stringify(response));
-        this.surveys = JSON.parse(localStorage.getItem('surveysToDisplay'));
+        this.surveys = response;
       });
   }
 }

@@ -187,6 +187,18 @@ export class ApiService {
       case 'employee':
         return this.http.post(`${this.baseRoute + this.employeesRoute + this.createRoute}`,
             JSON.stringify(model), options);
+      case 'sondage_date':
+        return this.http.post(`${this.baseRoute + this.surveysDateRoute + this.createRoute}`,
+            JSON.stringify(model), options);
+      case 'sondage_date_lieu':
+        return this.http.post(`${this.baseRoute + this.surveysDateLocationRoute + this.createRoute}`,
+            JSON.stringify(model), options);
+      case 'sondage_lieu':
+        return this.http.post(`${this.baseRoute + this.surveysLocationRoute + this.createRoute}`,
+            JSON.stringify(model), options);
+      case 'sondage_liste':
+        return this.http.post(`${this.baseRoute + this.surveysListRoute + this.createRoute}`,
+            JSON.stringify(model), options);
     }
   }
 }
