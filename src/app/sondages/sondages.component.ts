@@ -44,7 +44,6 @@ export class SondagesComponent implements OnInit {
      */
   getSurveysFromType(type: string) {
     this.isLoading = true;
-    this.surveys = undefined;
     this.api.getSurveys(type)
       .subscribe((response) => {
         this.isLoading = false;

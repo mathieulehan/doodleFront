@@ -10,6 +10,7 @@ import {Employe} from '../models/Employe';
 export class EmployeComponent implements OnInit {
 
   employeToDisplay: Employe;
+    employeId: number;
 
   constructor(public api: ApiService) {
   }

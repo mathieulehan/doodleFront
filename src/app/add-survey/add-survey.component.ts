@@ -53,7 +53,7 @@ export class AddSurveyComponent implements OnInit {
                         const intId = (lastField && lastField.length && lastField.data('idx') + 1) || 1;
                         const fieldWrapper = $('<div class=\'fieldwrapper\' id=\'field' + intId + '\'/>');
                         fieldWrapper.data('idx', intId);
-                        const fName = $('<input type=\'text\' class=\'fieldname\' name=\'choix_' + nbChoix + '\' [(ngModel)]="sondage.choix_' + nbChoix + ' + />');
+                        const fName = $('<input type=\'text\' class=\'fieldname\' name=\'choix_' + nbChoix + '\' [(ngModel)]=\'sondage.choix_' + nbChoix + '\' />');
                         const removeButton = $('<input type=\'button\' class=\'remove\' value=\'-\' />');
                         removeButton.click(function() {
                             $(this).parent().remove();

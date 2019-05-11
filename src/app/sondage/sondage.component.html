@@ -1,10 +1,21 @@
 <div class="container">
 
-  <mat-card>
+  Vous pouvez cependant en afficher un autre en entrant son id.
+  <br>
+  <input [(ngModel)]="surveyId" type="number">
+  <input (click)="getSondage(surveyId)" type="button" value="Récupérer le sondage"/>
+
+  <mat-card *ngIf="sondageToDisplay">
     Titre:
     <mat-card-title>{{sondageToDisplay?.titre}}</mat-card-title>
     Thème:
     <mat-card-subtitle>{{sondageToDisplay?.theme}}</mat-card-subtitle>
-    <mat-card-content>Mettre les réponses ici</mat-card-content>
+    <mat-card-content>Choix
+      <p *ngFor="let choix of sondageToDisplay?.choix">- {{choix.enonce}}</p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card *ngIf="!sondageToDisplay">
+    Aucun sondage ne porte cet id !
   </mat-card>
 </div>

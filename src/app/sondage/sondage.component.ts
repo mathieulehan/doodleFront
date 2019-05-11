@@ -10,6 +10,7 @@ import {ApiService} from '../api.service';
 export class SondageComponent implements OnInit {
 
   sondageToDisplay: Sondage;
+  surveyId: number;
 
   constructor(public api: ApiService) {
   }
@@ -29,5 +30,6 @@ export class SondageComponent implements OnInit {
     this.api.getSurvey(id).subscribe(res => {
       this.sondageToDisplay = res;
     });
+    console.log(this.sondageToDisplay);
   }
 }

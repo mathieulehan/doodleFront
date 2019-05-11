@@ -80,7 +80,6 @@ export class SondageTypeComponent implements OnInit {
    */
   private getSurveysFromType(type: string) {
     this.isLoading = true;
-    this.sondagesToDisplay = undefined;
     this.api.getSurveys(type).subscribe(res => {
         this.isLoading = false;
         localStorage.setItem('surveysToDisplay', JSON.stringify(res));

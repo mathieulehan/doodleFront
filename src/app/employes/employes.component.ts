@@ -47,7 +47,6 @@ export class EmployesComponent implements OnInit {
    */
   getEmployes() {
     this.isLoading = true;
-    this.employes = undefined;
     this.api.getEmployees().subscribe(res => {
       this.isLoading = false, this.employes = res;
     });

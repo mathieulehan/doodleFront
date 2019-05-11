@@ -2,10 +2,19 @@
 
   Par défaut, l'employé portant l'id 1 est affiché.
 
-  <mat-card *ngIf="employeToDisplay">
+    Vous pouvez cependant en afficher un autre en entrant son id.
+    <br>
+    <input [(ngModel)]="employeId" type="number">
+    <input (click)="getEmploye(employeId)" type="button" value="Chercher l'employé"/>
+
+    <mat-card *ngIf="employeToDisplay">
     Prénom:
     <mat-card-title>{{employeToDisplay.firstName}}</mat-card-title>
     Nom:
     <mat-card-subtitle>{{employeToDisplay.lastName}}</mat-card-subtitle>
   </mat-card>
+
+    <mat-card *ngIf="!employeToDisplay">
+        Aucun employé ne porte cet id !
+    </mat-card>
 </div>
