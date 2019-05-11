@@ -30,6 +30,9 @@ Via le menu qui se dévoile à gauche de l'interface, on peut :
 - compter les sondages de chaque type
 - voir un sondage à partir de son id
 - supprimer un sondage à partir de son id
+- créer un département
+- créer un employé
+- créer des sondages (sauf ceux de types nombre de choix variables)
 
 Les différents tableaux affichables sont dotés de pagination,
 permettent de trier les résultats affichés en fonction d'une entrée utilisateur, 
