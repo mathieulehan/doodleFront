@@ -1,0 +1,8 @@
+<p>
+    Ajouter un départment :
+<div class="input-group">
+    <span class="input-group-addon">Adresse</span> <input [(ngModel)]="department.name"
+                                                          class="form-control" name="name" required
+                                                          type="text">
+</div>
+<input (click)="addDepartment()" type="button" value="Ajouter le département"/>

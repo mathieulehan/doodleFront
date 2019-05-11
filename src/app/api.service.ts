@@ -2,29 +2,34 @@ import {Injectable} from '@angular/core';
 import {Observable, throwError} from 'rxjs';
 import {Employe} from './models/Employe';
 import {Sondage} from './models/Sondage';
+import {Department} from './models/Department';
 import {catchError} from 'rxjs/internal/operators/catchError';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
+
   // routes
   baseRoute: string;
+  departmentRoute: string;
   employeesRoute: string;
-  countRoute: string;
   surveysRoute: string;
   surveysDateRoute: string;
   surveysLocationRoute: string;
   surveysDateLocationRoute: string;
   surveysListRoute: string;
+  countRoute: string;
+  createRoute: string;
 
   constructor(private http: HttpClient) {
     // default route
     this.baseRoute = '/api/';
+    // departments
+    this.departmentRoute = 'department/';
     // employees
     this.employeesRoute = 'employees/';
-
     // surveysRoute
     this.surveysRoute = 'surveys/';
     this.surveysDateRoute = 'dateSurveys/';
@@ -34,6 +39,7 @@ export class ApiService {
 
     // operations
     this.countRoute = 'count';
+    this.createRoute = 'create';
   }
 
   /**
@@ -50,6 +56,20 @@ export class ApiService {
     }
     return throwError(
       'Something bad happened; please try again later.');
+  }
+
+  private static getHeaders() {
+    return {headers: new HttpHeaders({'Content-Type': 'application/json'})};
+  }
+
+  /**
+   * Get the list of departments
+   */
+  getDepartments() {
+    return this.http.get<Department[]>(`${this.baseRoute + this.departmentRoute}`)
+        .pipe(
+            catchError(ApiService.handleError)
+        );
   }
 
   /**
@@ -155,6 +175,18 @@ export class ApiService {
           .pipe(
             catchError(ApiService.handleError)
           );
+    }
+  }
+
+  save(entity: string, model: any): Observable<any> {
+    const options = ApiService.getHeaders();
+    switch (entity) {
+      case 'department':
+        return this.http.post(`${this.baseRoute + this.departmentRoute + this.createRoute}`,
+            JSON.stringify(model), options);
+      case 'employee':
+        return this.http.post(`${this.baseRoute + this.employeesRoute + this.createRoute}`,
+            JSON.stringify(model), options);
     }
   }
 }

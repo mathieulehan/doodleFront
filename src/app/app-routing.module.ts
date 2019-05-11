@@ -9,6 +9,8 @@ import {EmployesComponent} from './employes/employes.component';
 import {EmployesCountComponent} from './employes-count/employes-count.component';
 import {SondagesComponent} from './sondages/sondages.component';
 import {SondagesTypeCountComponent} from './sondages-type-count/sondages-type-count.component';
+import {AddDepartmentComponent} from './add-department/add-department.component';
+import {AddEmployeeComponent} from './add-employee/add-employee.component';
 
 const routes: Routes = [
   {path: '', component: AppComponent},
@@ -19,7 +21,10 @@ const routes: Routes = [
   {path: 'sondages-type-count', component: SondagesTypeCountComponent},
   {path: 'employe', component: EmployeComponent},
   {path: 'employes', component: EmployesComponent},
-  {path: 'employes-count', component: EmployesCountComponent}
+    {path: 'employes-count', component: EmployesCountComponent},
+    {path: 'addDepartment', component: AddDepartmentComponent},
+    {path: 'addEmployee', component: AddEmployeeComponent}
+
 ];
 
 @NgModule({

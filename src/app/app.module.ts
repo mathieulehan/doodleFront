@@ -10,8 +10,10 @@ import {
     MatCardModule,
     MatDividerModule,
     MatInputModule,
+    MatOptionModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
+    MatSelectModule,
     MatSidenavModule,
     MatSortModule
 } from '@angular/material';
@@ -31,6 +33,9 @@ import {MatTableModule} from '@angular/material/table';
 import {MatTabsModule} from '@angular/material/tabs';
 import 'hammerjs';
 import {MatTableComponent} from './angularMatTable/mat-table.component';
+import {AddDepartmentComponent} from './add-department/add-department.component';
+import {FormsModule} from '@angular/forms';
+import {AddEmployeeComponent} from './add-employee/add-employee.component';
 
 @NgModule({
   declarations: [
@@ -45,26 +50,31 @@ import {MatTableComponent} from './angularMatTable/mat-table.component';
     SondagesComponent,
     SondagesTypeCountComponent,
     MatTableComponent,
+      AddDepartmentComponent,
+      AddEmployeeComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatSidenavModule,
-    MatButtonModule,
-    MatTreeModule,
-    MatCardModule,
-    MatBadgeModule,
-    HttpClientModule,
-    MatTooltipModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatInputModule,
-    MatSortModule,
-    MatDividerModule,
-    MatTabsModule,
-    MatProgressSpinnerModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatSidenavModule,
+        MatButtonModule,
+        MatTreeModule,
+        MatCardModule,
+        MatBadgeModule,
+        HttpClientModule,
+        MatTooltipModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatInputModule,
+        MatSortModule,
+        MatDividerModule,
+        MatTabsModule,
+        MatProgressSpinnerModule,
+        FormsModule,
+        MatOptionModule,
+        MatSelectModule
+    ],
   exports: [MatSidenavModule, MatButtonModule, MatTreeModule],
   providers: [ApiService],
   bootstrap: [AppComponent]
