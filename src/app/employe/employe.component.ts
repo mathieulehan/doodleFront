@@ -27,5 +27,6 @@ export class EmployeComponent implements OnInit {
     this.api.getEmploye(id).subscribe(res => {
       this.employeToDisplay = res;
     });
+      console.log(this.employeToDisplay);
   }
 }

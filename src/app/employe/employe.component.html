@@ -4,7 +4,9 @@
 
     Vous pouvez cependant en afficher un autre en entrant son id.
     <br>
-    <input [(ngModel)]="employeId" type="number">
+    <label>
+        <input [(ngModel)]="employeId" type="number">
+    </label>
     <input (click)="getEmploye(employeId)" type="button" value="Chercher l'employé"/>
 
     <mat-card *ngIf="employeToDisplay">
@@ -12,6 +14,10 @@
     <mat-card-title>{{employeToDisplay.firstName}}</mat-card-title>
     Nom:
     <mat-card-subtitle>{{employeToDisplay.lastName}}</mat-card-subtitle>
+        <mat-card-content>Sondages créés :
+            <p *ngFor="let sondage of employeToDisplay?.sondages">- <b>Titre :</b> {{sondage.titre}} <b>/ Thème
+                :</b> {{sondage.theme}}</p>
+        </mat-card-content>
   </mat-card>
 
     <mat-card *ngIf="!employeToDisplay">
