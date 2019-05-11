@@ -10,7 +10,6 @@ import {MatTabChangeEvent} from '@angular/material';
 export class SondageTypeComponent implements OnInit {
 
   isLoading: boolean;
-
   sondagesToDisplay: any;
   surveysDateNumber: string;
   surveysDateLocationNumber: string;
@@ -21,6 +20,11 @@ export class SondageTypeComponent implements OnInit {
   constructor(public api: ApiService) {
   }
 
+  /**
+   * returns true if the given key exists on local storage
+   * prevents redundant calls to the API
+   * @param key the key to check
+   */
   static isInLocalStorage(key: string) {
     return !(localStorage.getItem(key) === null || !localStorage.getItem(key) === undefined);
   }
@@ -31,6 +35,10 @@ export class SondageTypeComponent implements OnInit {
     this.displayedColumns = ['id', 'titre', 'theme', 'choix'];
   }
 
+  /**
+   * gets all surveys from the API using ApiService
+   * checks local storage before calling ApiService
+   */
   private getAllSurveysNumber() {
     if (!SondageTypeComponent.isInLocalStorage('surveysDateNumber')) {
       this.api.getNumberOfSurveys('date').subscribe(res =>
@@ -66,6 +74,10 @@ export class SondageTypeComponent implements OnInit {
     }
   }
 
+  /**
+   * Get all surveys from a specified type
+   * @param type survey's type
+   */
   private getSurveysFromType(type: string) {
     this.isLoading = true;
     this.sondagesToDisplay = undefined;
@@ -77,6 +89,10 @@ export class SondageTypeComponent implements OnInit {
     );
   }
 
+  /**
+   * on matTab click, loads data according to tab index
+   * @param event matTab click
+   */
   onLinkClick(event: MatTabChangeEvent) {
     switch (event.index) {
       case 0:

@@ -22,6 +22,9 @@ export class SondagesTypeCountComponent implements OnInit {
     this.getAllSurveysNumber();
   }
 
+  /**
+   * gets the number of created surveys from the API, using ApiService
+   */
   private getAllSurveysNumber() {
     this.api.getNumberOfSurveys('all').subscribe(res =>
       this.nbSondages = res

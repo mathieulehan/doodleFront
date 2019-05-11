@@ -29,12 +29,19 @@ export class SondagesComponent implements OnInit {
     this.displayedColumns = ['titre', 'theme', 'id', 'choix'];
   }
 
+    /**
+     * gets the number of created surveys (of any type)
+     */
   getAllSurveysNumber() {
     this.api.getNumberOfSurveys('all').subscribe(res =>
       this.nbSondages = res
     );
   }
 
+    /**
+     * gets all surveys
+     * @param type survey's type
+     */
   getSurveysFromType(type: string) {
     this.isLoading = true;
     this.surveys = undefined;

@@ -23,7 +23,7 @@ export class SondageComponent implements OnInit {
 
   /**
    * get a specific survey by its id
-   * @param id
+   * @param id survey's id
    */
   private getSondage(id: number) {
     this.api.getSurvey(id).subscribe(res => {

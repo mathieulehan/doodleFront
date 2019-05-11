@@ -20,6 +20,7 @@ export class ApiService {
   surveysListRoute: string;
 
   constructor(private http: HttpClient) {
+    // default route
     this.baseRoute = '/api/';
     // employees
     this.employeesRoute = 'employees/';
@@ -35,6 +36,10 @@ export class ApiService {
     this.countRoute = 'count';
   }
 
+  /**
+   * Error handling while getting data from backend
+   * @param error encountered error
+   */
   private static handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       console.error('An error occurred:', error.error.message);
